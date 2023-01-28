@@ -9,6 +9,7 @@ public class TechProLoginPage {
     public TechProLoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
     @FindBy(id = "exampleInputEmail1")
     public WebElement username;
     @FindBy(id = "exampleInputPassword1")
