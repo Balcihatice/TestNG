@@ -1,7 +1,10 @@
 package techproed.tests;
 
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import techproed.pages.TechProHomePage;
+import techproed.pages.TechProLoginPage;
 import techproed.pages.TechProHomePage;
 import techproed.pages.TechProLoginPage;
 import techproed.utilities.ConfigReader;
@@ -26,11 +29,10 @@ public class Day21_TechProLoginTest {
     Class: TechproLoginTest
     Metot : loginTest()
     */
-    @Test
+    @Test(groups = "regression-tests")
     public void loginTest(){
         TechProLoginPage techproLoginPage = new TechProLoginPage();
         TechProHomePage techproHomePage = new TechProHomePage();
-
         Driver.getDriver().get(ConfigReader.getProperty("techpro_test_url"));
         techproLoginPage.username.sendKeys(ConfigReader.getProperty("techpro_test_username"));
         techproLoginPage.password.sendKeys(ConfigReader.getProperty("techpro_test_password"));
@@ -42,7 +44,6 @@ public class Day21_TechProLoginTest {
         techproHomePage.homeLogoutButton.click();
 //        Cikis olduguna dair assertion yap
         Assert.assertTrue(techproLoginPage.submitButton.isDisplayed());
-
 //        Driver i kapat
         Driver.closeDriver();
     }

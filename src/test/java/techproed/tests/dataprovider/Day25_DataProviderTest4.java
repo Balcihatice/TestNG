@@ -10,8 +10,8 @@ public class Day25_DataProviderTest4 {
 
     //musteriVerileri
     @Test(dataProvider = "musteriVerileri", dataProviderClass = DataProviderUtils.class)
-    public void musterVerileriTest(String userName, String password) {
-        System.out.println("Username :" + userName + " . Password : " + password);
+    public void musterVerileriTest(String userName, String password,String sube) {
+        System.out.println("Username :" + userName + " . Password : " + password+ " . Sube : "+ sube);
     }
 
     //musteriHizmetleriVerileri
@@ -25,4 +25,15 @@ public class Day25_DataProviderTest4 {
     public void personelVerileri(String userName, String password) {
         System.out.println(userName + "    |     " + password);
     }
+
+
+    //    customerData
+    @Test(dataProvider = "customerData",dataProviderClass = DataProviderUtils.class)
+    public void customerDataTest(String username,String password){
+        System.out.println("EXCEL DATALARIM");
+        System.out.println(username + " ||| "+password);
+    }
+
+
+
 }

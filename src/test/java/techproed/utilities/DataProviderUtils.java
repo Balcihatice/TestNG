@@ -7,9 +7,9 @@ public class DataProviderUtils {
     @DataProvider
     public Object[][] musteriVerileri(){
         Object [][] musteriGirisBilgileri = {
-                {"menejer1","12345"},
-                {"menejer2","98765"},
-                {"mejejer3","5678"}
+                {"menejer1","12345","besiktas"},
+                {"menejer2","98765","bayrampasa"},
+                {"mejejer3","5678","karsiyaka"}
         };
         return musteriGirisBilgileri;
     }
@@ -33,6 +33,25 @@ public class DataProviderUtils {
         };
         return personelGirisBilgileri;
     }
+
+
+    //Excellden dataprovider`a data gelecek
+    //Bu datalari burdanda testcase gider.
+    @DataProvider
+    public Object[][] customerData(){
+//        DataProviderTest2 ile bu metot arasindaki tek fark bu metotda datalar Excelden gelir.
+//        Bu kullanim daha guzeldir
+        String path="./src/test/java/resources/mysmoketestdata.xlsx";
+        String sheetName = "customer_info";
+        ExcelUtils excelUtils = new ExcelUtils(path,sheetName);
+        Object[][] musteriBilgileri = excelUtils.getDataArrayWithoutFirstRow();
+        return musteriBilgileri;
+    }
+
+
+
+
+
 
 
 }
