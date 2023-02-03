@@ -69,7 +69,7 @@ public class Day19_TestNGAnnotations {
     public void test2(){
         System.out.println("Test 2");
     }
-    @Test(enabled = false,groups = "regression-tests")
+    @Test(enabled = false)
     public void test3(){
         System.out.println("Test 3");
     }
