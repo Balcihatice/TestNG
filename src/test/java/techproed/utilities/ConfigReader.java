@@ -23,7 +23,9 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
-
+    //This method will get the key from properties file,
+    //And return the value as String
+    //We create this method to read the file
 //    ConfigReader.getProperty("browser"); -> chrome
 //    ConfigReader.getProperty("amazon_url"); -> https://www.amazon.com
 //    ConfigReader.getProperty("username"); -> ali

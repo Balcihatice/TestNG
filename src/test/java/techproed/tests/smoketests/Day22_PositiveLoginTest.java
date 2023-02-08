@@ -1,6 +1,7 @@
 package techproed.tests.smoketests;
 
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 import techproed.pages.BlueRentalHomePage;
 import techproed.pages.BlueRentalLoginPage;
@@ -23,14 +24,19 @@ Admin password: 12345
     BlueRentalLoginPage blueRentalLoginPage;
     @Test
     public void US100201_Admin_Login(){
+        Reporter.log("SAyfaya git ");//JUnit te gecerli
         Driver.getDriver().get(ConfigReader.getProperty("app_url"));
         blueRentalHomePage = new BlueRentalHomePage();
         blueRentalLoginPage = new BlueRentalLoginPage();
+        Reporter.log("Login butonuna tikla");
         blueRentalHomePage.loginLink.click();
+        Reporter.log("Giris Bilgileri");
         blueRentalLoginPage.emailBox.sendKeys(ConfigReader.getProperty("admin_email"));
         blueRentalLoginPage.passwordBox.sendKeys(ConfigReader.getProperty("admin_sifre"));
         blueRentalLoginPage.loginButton.click();
+        Reporter.log("Giris yapildigini dogrula");
         Assert.assertTrue(blueRentalHomePage.userID.isDisplayed());
+        Reporter.log("Driveri kapat");
         Driver.closeDriver();
     }
 }
