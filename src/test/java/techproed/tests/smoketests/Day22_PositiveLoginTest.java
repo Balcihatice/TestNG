@@ -24,7 +24,7 @@ Admin password: 12345
     BlueRentalLoginPage blueRentalLoginPage;
     @Test
     public void US100201_Admin_Login(){
-        Reporter.log("SAyfaya git ");//JUnit te gecerli
+        Reporter.log("Sayfaya git ");//JUnit te gecerli
         Driver.getDriver().get(ConfigReader.getProperty("app_url"));
         blueRentalHomePage = new BlueRentalHomePage();
         blueRentalLoginPage = new BlueRentalLoginPage();

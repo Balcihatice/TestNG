@@ -3,6 +3,7 @@
     <test name="Regression1">
         <packages>
             <package name="techproed.*"></package>
+            <package name="techproed.tests.dataprovider"></package>
         </packages>
     </test>
 </suite>
