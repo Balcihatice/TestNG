@@ -34,6 +34,8 @@ public class Day24_DataProviderTest2 {
     BlueRentalHomePage blueRentalHomePage;
     BlueRentalLoginPage blueRentalLoginPage;
 
+//BURADA LOOP KULLANMAYA GEREK YOK
+
     @Test(dataProvider = "customerData")
     public void dataProviderLoginTest(String email, String sifre) throws IOException {
         //        Sayfaya git

@@ -28,7 +28,7 @@ public class Listeners implements ITestListener {
         System.out.println("OnTestSuccess-Sadece PASS olan testlerden SONRA cagrilir: " + result.getName());
     }
 
-    @Override
+    @Override//test kalinca ekran goruntusu alir
     public void onTestFailure(ITestResult result) {
         System.out.println("OnTestFailer-Sadece FAILED olan testlerden SONRA cagrilir: " + result.getName());
         try {

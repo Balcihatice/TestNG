@@ -47,11 +47,4 @@ public class DataProviderUtils {
         Object[][] musteriBilgileri = excelUtils.getDataArrayWithoutFirstRow();
         return musteriBilgileri;
     }
-
-
-
-
-
-
-
 }

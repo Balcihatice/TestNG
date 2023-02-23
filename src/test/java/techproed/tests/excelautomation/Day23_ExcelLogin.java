@@ -1,5 +1,6 @@
 package techproed.tests.excelautomation;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import techproed.pages.BlueRentalHomePage;
 import techproed.pages.BlueRentalLoginPage;
@@ -7,6 +8,7 @@ import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
 import techproed.utilities.ExcelUtils;
 import techproed.utilities.ReusableMethods;
+
 import java.util.List;
 import java.util.Map;
 
@@ -16,12 +18,13 @@ public class Day23_ExcelLogin {
     BlueRentalLoginPage blueRentalLoginPage;
     ExcelUtils excelUtils;
     List<Map<String, String>> excelDatalari;
+
     //    Bu metot login sayfasina gitmek icin kullanililacak
-    public void login(){
+    public void login() {
 //        Sayfaya git
         Driver.getDriver().get(ConfigReader.getProperty("app_url"));
 //        home page logine tikla
-        blueRentalHomePage= new BlueRentalHomePage();
+        blueRentalHomePage = new BlueRentalHomePage();
         blueRentalLoginPage = new BlueRentalLoginPage();
 //        ------SADECE ILK GIRIS---------
 //        loginLink butonu sadece ilk girisde sayfada gorunur
@@ -31,10 +34,10 @@ public class Day23_ExcelLogin {
             blueRentalHomePage.loginLink.click();
             ReusableMethods.waitFor(1);// 1 saniye bekle
 //        LOGIN SAYFASINDAYIZ
-        }catch (Exception e){
+        } catch (Exception e) {
         }
 //      -------------SONRAKI GIRISLER------
-        try{
+        try {
 //            kullanici ID ye tikla      --->>> try catch
             blueRentalHomePage.userID.click();
             ReusableMethods.waitFor(1);
@@ -48,20 +51,21 @@ public class Day23_ExcelLogin {
             blueRentalHomePage.loginLink.click();
             ReusableMethods.waitFor(1);
 //        LOGIN SAYFASINDAYIZ
-        }catch (Exception e){
+        } catch (Exception e) {
         }
     }
+
     @Test
-    public void customerLogin(){
-        String path="./src/test/java/resources/mysmoketestdata.xlsx";
+    public void customerLogin() {
+        String path = "./src/test/java/resources/mysmoketestdata.xlsx";
 //        ./ ONCEKI TUM DOSYALARI ICER. RELATIVE PATH.
         String sayfa = "customer_info";
 //        DATALARI EXCEL UTILS METOTLARINI KULLANARAK BURAYA ALACAZ
-        excelUtils = new ExcelUtils(path,sayfa);
+        excelUtils = new ExcelUtils(path, sayfa);
 //        excel datalarini getDataList metotu ile cekelim
         excelDatalari = excelUtils.getDataList();
 //        LOOP KULLANARAK DATALARI TEK TEK TEST CASEDE KULLNA
-        for (Map<String,String> data : excelDatalari){
+        for (Map<String, String> data : excelDatalari) {
             login();//Her Loopda Login Sayfasina Goturecek
 //            kullanici adini gir
             ReusableMethods.waitFor(1);
@@ -73,8 +77,18 @@ public class Day23_ExcelLogin {
             ReusableMethods.waitFor(1);
             blueRentalLoginPage.loginButton.click();
             ReusableMethods.waitFor(1);
+            ReusableMethods.verifyElementDisplayed(blueRentalHomePage.userID);
+            ReusableMethods.waitFor(1);
+            //ReusableMethods.getScreenshot("EkranGoruntusu");
         }
     }
+
+    @AfterMethod
+    public void tearDown() {
+        Driver.closeDriver();
+    }
+
+
 }
     
     /*

@@ -20,9 +20,9 @@ public class Day24_DataProviderTest3 {
 //        DataProviderTest2 ile bu metot arasindaki tek fark bu metotda datalar Excelden gelir.
 //        Bu kullanim daha guzeldir
         String path = "./src/test/java/resources/mysmoketestdata.xlsx";
-        String sheetName = "customer_info";
-        ExcelUtils excelUtils = new ExcelUtils(path, sheetName);
-        Object[][] musteriBilgileri = excelUtils.getDataArrayWithoutFirstRow();
+        String sheetName = "customer_info";//EXCELL SAYFASININ ADI
+        ExcelUtils excelUtils = new ExcelUtils(path, sheetName);//BU ADRESTEKI EXCELLDEKI DATAYA ULASACAGIM
+        Object[][] musteriBilgileri = excelUtils.getDataArrayWithoutFirstRow();//ILK SATIR HARICI DATALARI VER
         return musteriBilgileri;
     }
 
