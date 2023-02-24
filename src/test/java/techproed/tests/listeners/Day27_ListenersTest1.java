@@ -26,7 +26,7 @@ public class Day27_ListenersTest1 {
     @Test
     public void test3() {
         System.out.println("SKIP");
-        throw  new SkipException("Meyhodu atla");
+        throw  new SkipException("Methodu atla");
     }
 
     @Test
