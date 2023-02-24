@@ -30,13 +30,14 @@ public class Day21_TechProLoginTest {
     Metot : loginTest()
     */
     @Test(groups = "regression-tests")
-    public void loginTest(){
+    public void loginTest() {
         TechProLoginPage techproLoginPage = new TechProLoginPage();
         TechProHomePage techproHomePage = new TechProHomePage();
         Driver.getDriver().get(ConfigReader.getProperty("techpro_test_url"));
         techproLoginPage.username.sendKeys(ConfigReader.getProperty("techpro_test_username"));
         techproLoginPage.password.sendKeys(ConfigReader.getProperty("techpro_test_password"));
         techproLoginPage.submitButton.click();
+
 //      ASSERTION
 //        Login yapildi. Driver su an Home Pagede
         Assert.assertTrue(techproHomePage.homeHeader.isDisplayed());
@@ -48,3 +49,5 @@ public class Day21_TechProLoginTest {
         Driver.closeDriver();
     }
 }
+
+

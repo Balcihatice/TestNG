@@ -13,6 +13,7 @@ public class Day21_OpenSourceLogin {
     public void openSourceLogin() {
 
         //1. Adim
+
         Driver.getDriver().get(ConfigReader.getProperty("open_source_url"));
 
         //2.Adim Page objesi olustur

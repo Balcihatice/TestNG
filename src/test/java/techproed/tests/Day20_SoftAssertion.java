@@ -16,6 +16,7 @@ public class Day20_SoftAssertion {
         softAssert.assertTrue(true);//PASS
         System.out.println("Satir 20");
         softAssert.assertAll();//PASS yada FAIL olarak assertion lari isaretler
+
     }
 
 }
